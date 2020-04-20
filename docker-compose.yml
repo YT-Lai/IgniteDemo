@@ -1,0 +1,12 @@
+version: '3.3'
+services:
+    db2:
+        container_name: db2forignite
+        privileged: true
+        ports:
+            - '50000:50000'
+        environment:
+            - LICENSE=accept
+            - DB2INST1_PASSWORD=p@ssw0rd
+            - DBNAME=insdb
+        image: ibmcom/db2
