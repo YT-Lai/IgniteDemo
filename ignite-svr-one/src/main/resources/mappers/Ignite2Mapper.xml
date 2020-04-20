@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="y.t.ignite.svr.one.dao.Ignite2Mapper">
+  <resultMap id="BaseResultMap" type="y.t.ignite.svr.one.entity.dbeb.Ignite2">
+    <id column="FIELD_ONE" jdbcType="VARCHAR" property="fieldOne" />
+    <result column="FIELD_TWO" jdbcType="VARCHAR" property="fieldTwo" />
+    <result column="FIELD_THREE" jdbcType="VARCHAR" property="fieldThree" />
+    <result column="FIELD_FOUR" jdbcType="VARCHAR" property="fieldFour" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from DBEB.IGNITE2
+    where FIELD_ONE = #{fieldOne,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="y.t.ignite.svr.one.entity.dbeb.Ignite2">
+    insert into DBEB.IGNITE2 (FIELD_ONE, FIELD_TWO, FIELD_THREE, 
+      FIELD_FOUR)
+    values (#{fieldOne,jdbcType=VARCHAR}, #{fieldTwo,jdbcType=VARCHAR}, #{fieldThree,jdbcType=VARCHAR}, 
+      #{fieldFour,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="y.t.ignite.svr.one.entity.dbeb.Ignite2">
+    update DBEB.IGNITE2
+    set FIELD_TWO = #{fieldTwo,jdbcType=VARCHAR},
+      FIELD_THREE = #{fieldThree,jdbcType=VARCHAR},
+      FIELD_FOUR = #{fieldFour,jdbcType=VARCHAR}
+    where FIELD_ONE = #{fieldOne,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select FIELD_ONE, FIELD_TWO, FIELD_THREE, FIELD_FOUR
+    from DBEB.IGNITE2
+    where FIELD_ONE = #{fieldOne,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select FIELD_ONE, FIELD_TWO, FIELD_THREE, FIELD_FOUR
+    from DBEB.IGNITE2
+  </select>
+</mapper>

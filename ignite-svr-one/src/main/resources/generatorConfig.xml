@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<context id="context1" defaultModelType="flat" targetRuntime="MyBatis3Simple">
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+            <property name="suppressDate" value="true" />
+        </commentGenerator>
+		<jdbcConnection
+			connectionURL="jdbc:db2://192.168.99.100:50000/DBEB"
+			driverClass="com.ibm.db2.jcc.DB2Driver" password="p@ssw0rd"
+			userId="db2inst1" >
+			<property name="nullCatalogMeansCurrent"
+                value="true" />
+        </jdbcConnection>
+        <javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		<javaModelGenerator
+			targetPackage="y.t.ignite.svr.one.entity"
+			targetProject="ignite-svr-one/src/main/java" >
+			<property name="enableSubPackages" value="true" />
+		</javaModelGenerator>
+		<sqlMapGenerator targetPackage="mappers"
+			targetProject="ignite-svr-one/src/main/resources" />
+		<javaClientGenerator
+			targetPackage="y.t.ignite.svr.one.dao"
+			targetProject="ignite-svr-one/src/main/java" type="XMLMAPPER" />
+		<table schema="DBEB" tableName="IGNITE1" />
+		<table schema="DBEB" tableName="IGNITE2" />
+	</context>
+</generatorConfiguration>
